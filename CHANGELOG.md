@@ -1,6 +1,6 @@
 # Changes between versions
 
-## Not yet released
+## 1.0.1 (2015-04-15)
 
 * Fixed notification messages
 * Fixed listener priorities
