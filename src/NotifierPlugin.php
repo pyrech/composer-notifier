@@ -49,10 +49,10 @@ class NotifierPlugin implements PluginInterface, EventSubscriberInterface
     {
         return array(
             ScriptEvents::POST_INSTALL_CMD => array(
-                array('postInstall', 0),
+                array('postInstall', -10000),
             ),
             ScriptEvents::POST_UPDATE_CMD => array(
-                array('postUpdate', 0),
+                array('postUpdate', -10000),
             ),
         );
     }
