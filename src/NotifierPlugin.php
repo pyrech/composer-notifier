@@ -48,11 +48,11 @@ class NotifierPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            ScriptEvents::POST_UPDATE_CMD => array(
-                array('postInstall', 0)
-            ),
             ScriptEvents::POST_INSTALL_CMD => array(
-                array('postUpdate', 0)
+                array('postInstall', 0),
+            ),
+            ScriptEvents::POST_UPDATE_CMD => array(
+                array('postUpdate', 0),
             ),
         );
     }
