@@ -1,0 +1,28 @@
+{
+    "name": "pyrech/composer-notifier",
+    "description": "Display desktop notifications when composer finishes to install / update",
+    "keywords": ["composer", "plugin", "notification"],
+    "license": "MIT",
+    "type": "composer-plugin",
+    "authors": [
+        {
+            "name": "Loïck Piera",
+            "email": "pyrech@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Pyrech\\ComposerNotifier\\": "src/"
+        }
+    },
+    "require": {
+        "composer-plugin-api": "1.0.0",
+        "jolicode/jolinotif": "~1.0"
+    },
+    "extra": {
+        "class": "Pyrech\\ComposerNotifier\\NotifierPlugin",
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
