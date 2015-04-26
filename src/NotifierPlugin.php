@@ -15,7 +15,7 @@ use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
-use Composer\Script\CommandEvent;
+use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
 use Joli\JoliNotif\Notification;
 use Joli\JoliNotif\Notifier;
@@ -58,17 +58,17 @@ class NotifierPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * @param CommandEvent $event
+     * @param Event $event
      */
-    public function postInstall(CommandEvent $event)
+    public function postInstall(Event $event)
     {
         $this->notify('Composer just finished the install command');
     }
 
     /**
-     * @param CommandEvent $event
+     * @param Event $event
      */
-    public function postUpdate(CommandEvent $event)
+    public function postUpdate(Event $event)
     {
         $this->notify('Composer just finished the update command');
     }
