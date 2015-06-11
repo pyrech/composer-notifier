@@ -1,5 +1,9 @@
 # Changes between versions
 
+## Not yet released
+
+* Fixed the Composer version required
+
 ## 1.0.2 (2015-04-26)
 
 * Fixed the use of a deprecated Composer class

@@ -16,7 +16,7 @@
         }
     },
     "require": {
-        "composer-plugin-api": "1.0.0",
+        "composer-plugin-api": "^1.0",
         "jolicode/jolinotif": "~1.0"
     },
     "extra": {
