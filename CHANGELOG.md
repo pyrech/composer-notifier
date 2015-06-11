@@ -1,6 +1,6 @@
 # Changes between versions
 
-## Not yet released
+## 1.0.3 (2015-06-11)
 
 * Fixed the Composer version required
 
