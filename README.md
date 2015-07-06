@@ -1,5 +1,7 @@
 # composer-notifier
 
+[![Latest Stable Version](https://poser.pugx.org/pyrech/composer-notifier/v/stable)](https://packagist.org/packages/pyrech/composer-notifier) [![Total Downloads](https://poser.pugx.org/pyrech/composer-notifier/downloads)](https://packagist.org/packages/pyrech/composer-notifier) [![Latest Unstable Version](https://poser.pugx.org/pyrech/composer-notifier/v/unstable)](https://packagist.org/packages/pyrech/composer-notifier)
+
 composer-notifier is a plugin for Composer. It displays desktop notification when
 Composer finishes install/update commands.
 
