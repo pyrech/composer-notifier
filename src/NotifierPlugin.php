@@ -94,7 +94,7 @@ class NotifierPlugin implements PluginInterface, EventSubscriberInterface
             (new Notification())
                 ->setTitle($this->getProjectName())
                 ->setBody($body)
-                ->setIcon(__DIR__ . '/../Resources/logo.png')
+                ->setIcon(realpath(__DIR__ . '/../Resources/logo.png'))
         ;
 
         $this->notifier->send($notification);
