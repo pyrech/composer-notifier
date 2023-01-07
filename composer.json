@@ -10,19 +10,38 @@
             "email": "pyrech@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=7.4",
+        "composer-plugin-api": "^1.0 || ^2.0",
+        "jolicode/jolinotif": "~2.0"
+    },
+    "require-dev": {
+        "composer/composer": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "symfony/phpunit-bridge": "^6.2"
+    },
     "autoload": {
         "psr-4": {
             "Pyrech\\ComposerNotifier\\": "src/"
         }
     },
-    "require": {
-        "composer-plugin-api": "^1.0",
-        "jolicode/jolinotif": "~1.0"
+    "autoload-dev": {
+        "psr-4": {
+            "Pyrech\\ComposerNotifier\\tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pyrech/composer-notifier": true
+        }
     },
     "extra": {
-        "class": "Pyrech\\ComposerNotifier\\NotifierPlugin",
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
+        "class": "Pyrech\\ComposerNotifier\\NotifierPlugin"
+    },
+    "scripts": {
+        "cs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --dry-run --verbose",
+        "fix-cs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose",
+        "test": "vendor/bin/simple-phpunit"
     }
 }

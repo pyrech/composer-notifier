@@ -3,3 +3,9 @@
 
 # Composer
 composer.phar
+
+# PHP-cs-fixer
+.php-cs-fixer.cache
+
+# PHPUnit
+.phpunit.result.cache
