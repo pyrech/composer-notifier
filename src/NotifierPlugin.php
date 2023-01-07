@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the composer-notifier project.
  *
  * (c) Loïck Piera <pyrech@gmail.com>
@@ -23,68 +23,55 @@ use Joli\JoliNotif\NotifierFactory;
 
 class NotifierPlugin implements PluginInterface, EventSubscriberInterface
 {
-    /**
-     * @var Notifier
-     */
-    private $notifier;
+    protected ?Composer $composer = null;
+    private ?Notifier $notifier;
 
-    /**
-     * @var Composer
-     */
-    protected $composer;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function activate(Composer $composer, IOInterface $io)
+    public function __construct(Notifier $notifier = null)
     {
-        $this->notifier = NotifierFactory::create();
+        $this->notifier = $notifier ?: NotifierFactory::create();
+    }
+
+    public function activate(Composer $composer, IOInterface $io): void
+    {
         $this->composer = $composer;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function getSubscribedEvents()
+    public function deactivate(Composer $composer, IOInterface $io): void
     {
-        return array(
-            ScriptEvents::POST_INSTALL_CMD => array(
-                array('postInstall', -10000),
-            ),
-            ScriptEvents::POST_UPDATE_CMD => array(
-                array('postUpdate', -10000),
-            ),
-        );
     }
 
-    /**
-     * @param Event $event
-     */
-    public function postInstall(Event $event)
+    public function uninstall(Composer $composer, IOInterface $io): void
+    {
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ScriptEvents::POST_INSTALL_CMD => [
+                ['postInstall', -10000],
+            ],
+            ScriptEvents::POST_UPDATE_CMD => [
+                ['postUpdate', -10000],
+            ],
+        ];
+    }
+
+    public function postInstall(Event $event): void
     {
         $this->notify('Composer just finished the install command');
     }
 
-    /**
-     * @param Event $event
-     */
-    public function postUpdate(Event $event)
+    public function postUpdate(Event $event): void
     {
         $this->notify('Composer just finished the update command');
     }
 
-    /**
-     * @return string
-     */
-    private function getProjectName()
+    private function getProjectName(): string
     {
         return $this->composer->getPackage()->getName();
     }
 
-    /**
-     * @param string $body
-     */
-    private function notify($body)
+    private function notify(string $body): void
     {
         if (!$this->notifier) {
             return;

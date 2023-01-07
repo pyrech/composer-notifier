@@ -11,6 +11,7 @@ Everybody should be able to help. Here's how you can do it:
 Here's some tips to make you the best contributor ever:
 
 * [Rules](#rules)
+* [Green tests](#green-tests)
 * [Standard code](#standard-code)
 * [Keeping your fork up-to-date](#keeping-your-fork-up-to-date)
 
@@ -19,8 +20,11 @@ Here's some tips to make you the best contributor ever:
 Here are a few rules to follow in order to ease code reviews, and discussions
 before maintainers accept and merge your work.
 
-You MUST follow the [PSR-1](http://www.php-fig.org/psr/1/) and
-[PSR-2](http://www.php-fig.org/psr/2/).
+* You MUST follow the [PSR-1](http://www.php-fig.org/psr/1/) and
+  [PSR-2](http://www.php-fig.org/psr/2/) (see [Rules](#rules)).
+* You MUST run the test suite (see [Green tests](#green-tests)).
+* You MUST write (or update) unit tests.
+* You SHOULD write documentation.
 
 Please, write [commit messages that make
 sense](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html),
@@ -39,13 +43,29 @@ which gives the context and/or explains why you are creating it.
 Your work will then be reviewed as soon as possible (suggestions about some
 changes, improvements or alternatives may be given).
 
+## Green tests
+
+Run the tests using the following script:
+
+```shell
+vendor/bin/simple-phpunit
+```
+or the alias:
+```shell
+composer test
+```
+
 ## Standard code
 
-Use [PHP CS fixer](http://cs.sensiolabs.org/) to make your code compliant with
+Use [PHP CS fixer](https://cs.symfony.com/) to make your code compliant with
 composer-notifier's coding standards:
 
 ```shell
-php-cs-fixer fix .
+vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff
+```
+or the alias:
+```shell
+composer fix-cs
 ```
 
 ## Keeping your fork up-to-date
@@ -61,11 +81,11 @@ git remote add upstream https://github.com/pyrech/composer-notifier.git
 Then get the upstream changes:
 
 ```shell
-git checkout master
-git pull --rebase origin master
-git pull --rebase upstream master
+git checkout main
+git pull --rebase origin main
+git pull --rebase upstream main
 git checkout <your-branch>
-git rebase master
+git rebase main
 ```
 
 Finally, publish your changes:

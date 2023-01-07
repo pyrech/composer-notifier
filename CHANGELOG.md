@@ -1,5 +1,13 @@
 # Changes between versions
 
+## Not yet released
+
+* Added support for Composer v2 APIs
+* Dropped support for PHP < 7.4
+* Added unit tests and setup CI
+* Modernize code base
+* Update code style to recent standards
+
 ## 1.0.3 (2015-06-11)
 
 * Fixed the Composer version required
