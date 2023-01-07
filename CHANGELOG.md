@@ -1,6 +1,6 @@
 # Changes between versions
 
-## Not yet released
+## 1.1.0 (2023-01-07)
 
 * Added support for Composer v2 APIs
 * Dropped support for PHP < 7.4
